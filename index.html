@@ -12,11 +12,55 @@
     canvas {
       position: absolute;
     }
+
+	#setting-toggle {
+		position: absolute;
+		font-size: 3vw;
+		top: -32px;
+		left: -32px;
+		transition: 0.3s;
+		text-shadow: 0 1px 3px rgba(0,0,0,.25);
+	}
+	#setting-toggle-container {
+		position: absolute;
+		width: 20vw;
+		height: 20vh;
+	}
+
+	#setting-toggle-container:hover #setting-toggle {
+		top: 16px;
+		left: 16px;
+	}
+
+	#setting-toggle:hover {
+		transform: rotate(90deg);
+	}
+
+	#settings {
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		top: -100vh;
+		left: -100vw;
+		background-color: #000a;
+		transition: 0.3s;
+	}
+
+	#settings.show {
+		top: 0;
+		left: 0;
+	}
   </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="index.js" defer></script>
+  <link type="text/css" rel="stylesheet" href="fontawesome/css/all.min.css">
 </head>
 <body>
   <canvas></canvas>
+  <div id="settings">
+  </div>
+  <div id="setting-toggle-container">
+  	<i class="fas fa-cog" id="setting-toggle" onclick="toggleSettings()"></i>
+  </div>
 </body>
 </html>
