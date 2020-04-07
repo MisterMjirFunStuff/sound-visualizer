@@ -89,7 +89,6 @@ function wave(timestamp) {
     ctx.lineTo(x, canvas.height / 2 - heights[i]);
     ctx.closePath();
 	ctx.strokeStyle = rainbow[rainbowI + 1 < rainbowRange ? rainbowI++ : rainbowI = 0];
-	$("#setting-toggle").css("color", rainbow[rainbowI]);
     ctx.stroke();
 	if (x > canvas.width) {
 		heights.splice(i);
@@ -107,7 +106,17 @@ requestAnimationFrame(wave);
 function toggleSettings() {
 	if ($("#settings").hasClass("show")) {
 		$("#settings").removeClass("show");
+		$("#setting-toggle").css("color", "#333");
 	} else {
 		$("#settings").addClass("show");
+		$("#setting-toggle").css("color", "#fff");
 	}
+}
+
+function setPrecision() {
+	precision = document.getElementById("precision").value;
+}
+
+function setHeight() {
+	multiplier = document.getElementById("height").value;
 }

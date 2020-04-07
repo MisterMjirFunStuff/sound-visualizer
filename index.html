@@ -20,6 +20,7 @@
 		left: -5vh;
 		transition: 0.3s;
 		text-shadow: 0 1px 3px rgba(0,0,0,.25);
+		color: #333;
 	}
 	#setting-toggle-container {
 		position: absolute;
@@ -44,11 +45,33 @@
 		left: -100vw;
 		background-color: #000a;
 		transition: 0.3s;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	#settings.show {
 		top: 0;
 		left: 0;
+	}
+
+	#inputs {
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 1px 3px rgba(0,0,0,.5);
+		padding: 16px;
+		background-color: #f5f5f5;
+		border-radius: 4px;
+	}
+
+	input {
+		margin: 16px;
+	}
+
+	label {
+		font-family: sans-serif;
+		color: #000;
+		font-size: 1vw;
 	}
   </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
@@ -58,6 +81,12 @@
 <body>
   <canvas></canvas>
   <div id="settings">
+	  <div id="inputs">
+		  <label for="precision">Precision:</label>
+		  <input type="number" id="precision" name="precision" min="1" max="100" value="1" onchange="setPrecision()"></input>
+		  <label for="height">Height:</label>
+		  <input type="number" id="height" name="height" min="1" value="100" onchange="setHeight()"></input>
+	  </div>
   </div>
   <div id="setting-toggle-container">
   	<i class="fas fa-cog" id="setting-toggle" onclick="toggleSettings()"></i>
